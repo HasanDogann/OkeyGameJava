@@ -105,7 +105,7 @@ public class ScoreFinder {
                 if ((j - i + 1) == 2) {
                     notPer += 1;
                     if (jokerCount > 0) {
-                        System.out.println(array[i] + "-" + array[j] + " -> joker in kullanılabileceği sıralı per");
+                        System.out.println(array[i] + "-" + array[j] + " -> Okey in kullanılabileceği sıralı per");
                         player.setPer2((byte) (player.getPer2() + 1));
 
                     }
@@ -124,7 +124,7 @@ public class ScoreFinder {
                     notPer += 1;
                 } else if (i < array.length - 1 && jokerCount > 0 && array[i] + 2 == array[i + 1]) {
                     //aralarında 2 fark varsa
-                    System.out.println(array[i] + "-" + array[i + 1] + " -> joker in kullanılabileceği aralıklı per");
+                    System.out.println(array[i] + "-" + array[i + 1] + " -> Okey in kullanılabileceği aralıklı per");
                     player.setPerWithSpace((byte) (player.getPerWithSpace() + 1));
                     notPer += 1;
                     //İncelenen taş ardışık çift/tek sayı iken 1 önceki taş ile 4 lü per olma kontrolü
