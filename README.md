@@ -1,7 +1,7 @@
 # OkeyGameJava
 
 
-Bu projede klasik okey olarak bilinen 4 kişi ile oynanan okey oyunun backend kodlaması üzerinde çalışılmıştır. Oyun oynanış şeklini alt tarafta görebilirsiniz. Örnek proje amaçlı yazılmış olup bir amaca hizmet etmemektedir.
+Bu projede klasik okey olarak bilinen 4 kişi ile oynanan okey oyununun backend kodlaması üzerinde çalışılmıştır. Oyun oynanış şeklini alt tarafta görebilirsiniz. Örnek proje amaçlı yazılmış olup bir amaca hizmet etmemektedir.
 
 
 
