@@ -11,7 +11,7 @@ public class ScoreFinder {
         System.out.println("Oyuncu Adı: " + player.getName());
 
         //Oyunculara taşlarını dağıt
-        giveTilesToPlayers(player,joker);
+        giveTilesToPlayers(player, joker);
 
         //Oyuncuların taşlarını incele
         checkPlayerTiles(player.getTiles(), player, joker);
@@ -22,11 +22,11 @@ public class ScoreFinder {
         System.out.println("---------------------------------------------------------");
     }
 
-    private void giveTilesToPlayers(Player player,int joker) {
+    private void giveTilesToPlayers(Player player, int joker) {
 
         if (player.getTiles()[0] != -1) {
             System.out.println(Arrays.toString(player.getTiles()) + "-> 15 elemanlı array");
-            checkPlayerTiles(player.getTiles(), player, joker);
+
         } else {
             //3 kişi için 14 lü dizi oluşturma
             byte[] copiedArray = new byte[player.getTiles().length - 1];
@@ -128,17 +128,28 @@ public class ScoreFinder {
                     player.setPerWithSpace((byte) (player.getPerWithSpace() + 1));
                     notPer += 1;
                     //İncelenen taş ardışık çift/tek sayı iken 1 önceki taş ile 4 lü per olma kontrolü
-                    if (i - 1 > 0 && array[i - 1] == array[i] + 1) {
-                        notPer -= 4;
-                        player.setPer4((byte) (player.getPer4() + 1));
-                        player.setJokerCount((byte) (player.getJokerCount() - 1));
-                        System.out.println(array[i + 1] + " -> 4 lü per için okeyin koyulacağı yer");
+                    if (i - 1 > 0 && array[i - 1] == array[i] - 1) {
+                        if (i + 2 < array.length - 1 && array[i] + 2 == array[i + 2]) {
+                            notPer -= 5;
+                            player.setPer4((byte) (player.getPer4() + 1));
+                            jokerCount--;
+                            player.setJokerCount((byte) (player.getJokerCount() - 1));
+                            System.out.println(array[i] + " -> 5 li per için okeyin koyulacağı yer");
+                        } else {
+                            notPer -= 4;
+                            player.setPer4((byte) (player.getPer4() + 1));
+                            jokerCount--;
+                            player.setJokerCount((byte) (player.getJokerCount() - 1));
+                            System.out.println(array[i] + " -> 4 lü per için okeyin koyulacağı yer");
+                        }
+
 
                     }
                     //İncelenen taş ardışık çift/tek sayı iken 3 sonraki taş ile 4 lü per olma kontrolü
-                    else if (i + 3 < array.length - 1 && array[i + 3] == array[i] + 3) {
+                    else if (i + 3 < array.length - 1 && array[i + 2] == array[i] + 3) {
                         notPer -= 4;
                         player.setPer4((byte) (player.getPer4() + 1));
+                        jokerCount--;
                         player.setJokerCount((byte) (player.getJokerCount() - 1));
                         System.out.println(array[i + 1] + " -> 4 lü per için okeyin koyulacağı yer");
                     }
@@ -155,7 +166,7 @@ public class ScoreFinder {
         System.out.println("-----");
 
         //Ekrana oyuncunun eli hakkında bilgilerin yazdırılması
-        System.out.println(player.getJokerCount() > 0 ? jokerCount + " -> Okey bulunuyor" : "Okey bulunmuyor.");
+        System.out.println(player.getJokerCount() > 0 ? jokerCount + " -> Okey bulunuyor, 2'li perlerden birine ekleyebilirsin" : "Okey bulunmuyor.");
         System.out.println(player.getPer2() > 0 ? player.getPer2() + " -> Sıralı 2 taşlı per sayısı" : "");
         System.out.println(player.getPerWithSpace() > 0 ? player.getPerWithSpace() + " -> Aralıklı 2 taşlı per sayısı" : "");
         System.out.println(player.getDifColor2per() > 0 && jokerCount > 0 ? player.getDifColor2per() + " -> Oyuncunun okeyle per yapabileceği farklı renkli aynı değerde taşlar" : "");
