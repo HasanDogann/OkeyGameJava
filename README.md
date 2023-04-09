@@ -33,7 +33,7 @@ hangi oyuncu veya oyuncularda olduğu belirlenir ve ekrana yazdırılır.
   
 ## Ekran Görüntüleri
 
-![image](https://user-images.githubusercontent.com/72404480/230800944-a7bc58db-ae65-4c1c-a6ef-5e6bf8b8cf4e.png)
+![image](https://user-images.githubusercontent.com/72404480/230801203-56a427df-980d-487d-a1dd-ebc1ab35e2ce.png)
 
 
   
